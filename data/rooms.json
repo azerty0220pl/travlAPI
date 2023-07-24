@@ -1,0 +1,353 @@
+[
+    {
+        "id": 0,
+        "name": "V074",
+        "type": "Superior Double",
+        "ammenities": "AC, Shower, Double Bed, Towel, Bathtup, Coffee Set, LED TV, WiFi",
+        "price": 205,
+        "offer": 50,
+        "status": "Booked"
+    },
+    {
+        "id": 1,
+        "name": "X948",
+        "type": "Double Bed",
+        "ammenities": "AC, Shower, Double Bed, Towel, Bathtup, Coffee Set, LED TV, WiFi",
+        "price": 100,
+        "offer": 50,
+        "status": "Booked"
+    },
+    {
+        "id": 2,
+        "name": "S085",
+        "type": "Single Bed",
+        "ammenities": "AC, Shower, Double Bed, Towel, Bathtup, Coffee Set, LED TV, WiFi",
+        "price": 140,
+        "offer": 15,
+        "status": "Available"
+    },
+    {
+        "id": 3,
+        "name": "H029",
+        "type": "Double Bed",
+        "ammenities": "AC, Shower, Double Bed, Towel, Bathtup, Coffee Set, LED TV, WiFi",
+        "price": 100,
+        "offer": 20,
+        "status": "Booked"
+    },
+    {
+        "id": 4,
+        "name": "T823",
+        "type": "Superior Double",
+        "ammenities": "AC, Shower, Double Bed, Towel, Bathtup, Coffee Set, LED TV, WiFi",
+        "price": 190,
+        "offer": 40,
+        "status": "Booked"
+    },
+    {
+        "id": 5,
+        "name": "L334",
+        "type": "Superior Double",
+        "ammenities": "AC, Shower, Double Bed, Towel, Bathtup, Coffee Set, LED TV, WiFi",
+        "price": 270,
+        "offer": 0,
+        "status": "Available"
+    },
+    {
+        "id": 6,
+        "name": "P202",
+        "type": "Suite",
+        "ammenities": "AC, Shower, Double Bed, Towel, Bathtup, Coffee Set, LED TV, WiFi",
+        "price": 225,
+        "offer": 0,
+        "status": "Booked"
+    },
+    {
+        "id": 7,
+        "name": "P507",
+        "type": "Single Bed",
+        "ammenities": "AC, Shower, Double Bed, Towel, Bathtup, Coffee Set, LED TV, WiFi",
+        "price": 200,
+        "offer": 0,
+        "status": "Available"
+    },
+    {
+        "id": 8,
+        "name": "T567",
+        "type": "Double Bed",
+        "ammenities": "AC, Shower, Double Bed, Towel, Bathtup, Coffee Set, LED TV, WiFi",
+        "price": 205,
+        "offer": 0,
+        "status": "Available"
+    },
+    {
+        "id": 9,
+        "name": "W645",
+        "type": "Suite",
+        "ammenities": "AC, Shower, Double Bed, Towel, Bathtup, Coffee Set, LED TV, WiFi",
+        "price": 230,
+        "offer": 25,
+        "status": "Available"
+    },
+    {
+        "id": 10,
+        "name": "S405",
+        "type": "Single Bed",
+        "ammenities": "AC, Shower, Double Bed, Towel, Bathtup, Coffee Set, LED TV, WiFi",
+        "price": 255,
+        "offer": 5,
+        "status": "Available"
+    },
+    {
+        "id": 11,
+        "name": "X872",
+        "type": "Double Bed",
+        "ammenities": "AC, Shower, Double Bed, Towel, Bathtup, Coffee Set, LED TV, WiFi",
+        "price": 130,
+        "offer": 0,
+        "status": "Available"
+    },
+    {
+        "id": 12,
+        "name": "R237",
+        "type": "Single Bed",
+        "ammenities": "AC, Shower, Double Bed, Towel, Bathtup, Coffee Set, LED TV, WiFi",
+        "price": 110,
+        "offer": 20,
+        "status": "Available"
+    },
+    {
+        "id": 13,
+        "name": "K578",
+        "type": "Double Bed",
+        "ammenities": "AC, Shower, Double Bed, Towel, Bathtup, Coffee Set, LED TV, WiFi",
+        "price": 190,
+        "offer": 20,
+        "status": "Available"
+    },
+    {
+        "id": 14,
+        "name": "T535",
+        "type": "Suite",
+        "ammenities": "AC, Shower, Double Bed, Towel, Bathtup, Coffee Set, LED TV, WiFi",
+        "price": 240,
+        "offer": 25,
+        "status": "Booked"
+    },
+    {
+        "id": 15,
+        "name": "T498",
+        "type": "Superior Double",
+        "ammenities": "AC, Shower, Double Bed, Towel, Bathtup, Coffee Set, LED TV, WiFi",
+        "price": 125,
+        "offer": 0,
+        "status": "Booked"
+    },
+    {
+        "id": 16,
+        "name": "Y479",
+        "type": "Superior Double",
+        "ammenities": "AC, Shower, Double Bed, Towel, Bathtup, Coffee Set, LED TV, WiFi",
+        "price": 255,
+        "offer": 5,
+        "status": "Booked"
+    },
+    {
+        "id": 17,
+        "name": "W468",
+        "type": "Suite",
+        "ammenities": "AC, Shower, Double Bed, Towel, Bathtup, Coffee Set, LED TV, WiFi",
+        "price": 230,
+        "offer": 25,
+        "status": "Available"
+    },
+    {
+        "id": 18,
+        "name": "I778",
+        "type": "Superior Double",
+        "ammenities": "AC, Shower, Double Bed, Towel, Bathtup, Coffee Set, LED TV, WiFi",
+        "price": 155,
+        "offer": 15,
+        "status": "Booked"
+    },
+    {
+        "id": 19,
+        "name": "W722",
+        "type": "Suite",
+        "ammenities": "AC, Shower, Double Bed, Towel, Bathtup, Coffee Set, LED TV, WiFi",
+        "price": 280,
+        "offer": 20,
+        "status": "Booked"
+    },
+    {
+        "id": 20,
+        "name": "G365",
+        "type": "Double Bed",
+        "ammenities": "AC, Shower, Double Bed, Towel, Bathtup, Coffee Set, LED TV, WiFi",
+        "price": 200,
+        "offer": 20,
+        "status": "Available"
+    },
+    {
+        "id": 21,
+        "name": "Y636",
+        "type": "Double Bed",
+        "ammenities": "AC, Shower, Double Bed, Towel, Bathtup, Coffee Set, LED TV, WiFi",
+        "price": 220,
+        "offer": 40,
+        "status": "Booked"
+    },
+    {
+        "id": 22,
+        "name": "U967",
+        "type": "Superior Double",
+        "ammenities": "AC, Shower, Double Bed, Towel, Bathtup, Coffee Set, LED TV, WiFi",
+        "price": 240,
+        "offer": 5,
+        "status": "Booked"
+    },
+    {
+        "id": 23,
+        "name": "Z685",
+        "type": "Suite",
+        "ammenities": "AC, Shower, Double Bed, Towel, Bathtup, Coffee Set, LED TV, WiFi",
+        "price": 260,
+        "offer": 10,
+        "status": "Booked"
+    },
+    {
+        "id": 24,
+        "name": "K997",
+        "type": "Double Bed",
+        "ammenities": "AC, Shower, Double Bed, Towel, Bathtup, Coffee Set, LED TV, WiFi",
+        "price": 235,
+        "offer": 50,
+        "status": "Booked"
+    },
+    {
+        "id": 25,
+        "name": "Y525",
+        "type": "Suite",
+        "ammenities": "AC, Shower, Double Bed, Towel, Bathtup, Coffee Set, LED TV, WiFi",
+        "price": 215,
+        "offer": 40,
+        "status": "Booked"
+    },
+    {
+        "id": 26,
+        "name": "O743",
+        "type": "Double Bed",
+        "ammenities": "AC, Shower, Double Bed, Towel, Bathtup, Coffee Set, LED TV, WiFi",
+        "price": 280,
+        "offer": 45,
+        "status": "Booked"
+    },
+    {
+        "id": 27,
+        "name": "W393",
+        "type": "Suite",
+        "ammenities": "AC, Shower, Double Bed, Towel, Bathtup, Coffee Set, LED TV, WiFi",
+        "price": 240,
+        "offer": 50,
+        "status": "Booked"
+    },
+    {
+        "id": 28,
+        "name": "D027",
+        "type": "Double Bed",
+        "ammenities": "AC, Shower, Double Bed, Towel, Bathtup, Coffee Set, LED TV, WiFi",
+        "price": 105,
+        "offer": 40,
+        "status": "Booked"
+    },
+    {
+        "id": 29,
+        "name": "S606",
+        "type": "Suite",
+        "ammenities": "AC, Shower, Double Bed, Towel, Bathtup, Coffee Set, LED TV, WiFi",
+        "price": 280,
+        "offer": 0,
+        "status": "Booked"
+    },
+    {
+        "id": 30,
+        "name": "G377",
+        "type": "Superior Double",
+        "ammenities": "AC, Shower, Double Bed, Towel, Bathtup, Coffee Set, LED TV, WiFi",
+        "price": 190,
+        "offer": 15,
+        "status": "Booked"
+    },
+    {
+        "id": 31,
+        "name": "S815",
+        "type": "Double Bed",
+        "ammenities": "AC, Shower, Double Bed, Towel, Bathtup, Coffee Set, LED TV, WiFi",
+        "price": 230,
+        "offer": 40,
+        "status": "Booked"
+    },
+    {
+        "id": 32,
+        "name": "N904",
+        "type": "Single Bed",
+        "ammenities": "AC, Shower, Double Bed, Towel, Bathtup, Coffee Set, LED TV, WiFi",
+        "price": 195,
+        "offer": 45,
+        "status": "Booked"
+    },
+    {
+        "id": 33,
+        "name": "K307",
+        "type": "Superior Double",
+        "ammenities": "AC, Shower, Double Bed, Towel, Bathtup, Coffee Set, LED TV, WiFi",
+        "price": 215,
+        "offer": 10,
+        "status": "Booked"
+    },
+    {
+        "id": 34,
+        "name": "M832",
+        "type": "Single Bed",
+        "ammenities": "AC, Shower, Double Bed, Towel, Bathtup, Coffee Set, LED TV, WiFi",
+        "price": 280,
+        "offer": 50,
+        "status": "Available"
+    },
+    {
+        "id": 35,
+        "name": "J997",
+        "type": "Suite",
+        "ammenities": "AC, Shower, Double Bed, Towel, Bathtup, Coffee Set, LED TV, WiFi",
+        "price": 115,
+        "offer": 30,
+        "status": "Available"
+    },
+    {
+        "id": 36,
+        "name": "Y216",
+        "type": "Single Bed",
+        "ammenities": "AC, Shower, Double Bed, Towel, Bathtup, Coffee Set, LED TV, WiFi",
+        "price": 300,
+        "offer": 5,
+        "status": "Available"
+    },
+    {
+        "id": 37,
+        "name": "X080",
+        "type": "Single Bed",
+        "ammenities": "AC, Shower, Double Bed, Towel, Bathtup, Coffee Set, LED TV, WiFi",
+        "price": 250,
+        "offer": 35,
+        "status": "Available"
+    },
+    {
+        "id": 38,
+        "name": "Z418",
+        "type": "Superior Double",
+        "ammenities": "AC, Shower, Double Bed, Towel, Bathtup, Coffee Set, LED TV, WiFi",
+        "price": 260,
+        "offer": 5,
+        "status": "Booked"
+    }
+]
