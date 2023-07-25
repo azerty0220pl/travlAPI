@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 
-const infoController = (_req: Request, res: Response) => {
+const homeController = (_req: Request, res: Response) => {
     res.json({
         name: "Hotel Miranda",
         endpoints: {
@@ -24,4 +24,4 @@ const infoController = (_req: Request, res: Response) => {
     })
 }
 
-export default infoController;
+export default homeController;
