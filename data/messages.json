@@ -1,5 +1,5 @@
-{
-    "0": {
+[
+    {
         "id": 0,
         "name": "Heather Wintheiser",
         "email": "Heather.Wintheiser84@yahoo.com",
@@ -10,7 +10,7 @@
         "read": false,
         "date": "2022-08-18T13:29:14.710Z"
     },
-    "1": {
+    {
         "id": 1,
         "name": "Lindsey Considine",
         "email": "Lindsey63@yahoo.com",
@@ -21,7 +21,7 @@
         "read": false,
         "date": "2023-01-03T13:40:32.114Z"
     },
-    "2": {
+    {
         "id": 2,
         "name": "Kristen Quitzon",
         "email": "Kristen_Quitzon@yahoo.com",
@@ -32,7 +32,7 @@
         "read": false,
         "date": "2022-12-19T10:42:25.177Z"
     },
-    "3": {
+    {
         "id": 3,
         "name": "Enrique Morissette",
         "email": "Enrique_Morissette46@yahoo.com",
@@ -43,7 +43,7 @@
         "read": false,
         "date": "2023-02-24T14:24:43.168Z"
     },
-    "4": {
+    {
         "id": 4,
         "name": "Hannah Crooks",
         "email": "Hannah.Crooks@gmail.com",
@@ -54,7 +54,7 @@
         "read": false,
         "date": "2023-04-22T06:03:58.785Z"
     },
-    "5": {
+    {
         "id": 5,
         "name": "Estelle Heidenreich",
         "email": "Estelle.Heidenreich0@gmail.com",
@@ -65,7 +65,7 @@
         "read": false,
         "date": "2022-11-29T04:45:10.821Z"
     },
-    "6": {
+    {
         "id": 6,
         "name": "Darrel Lind",
         "email": "Darrel_Lind35@gmail.com",
@@ -76,7 +76,7 @@
         "read": false,
         "date": "2022-10-08T18:50:39.873Z"
     },
-    "7": {
+    {
         "id": 7,
         "name": "Lance Torphy",
         "email": "Lance.Torphy86@gmail.com",
@@ -87,7 +87,7 @@
         "read": false,
         "date": "2023-04-18T14:39:33.091Z"
     },
-    "8": {
+    {
         "id": 8,
         "name": "Kurt Barton",
         "email": "Kurt.Barton64@hotmail.com",
@@ -98,7 +98,7 @@
         "read": false,
         "date": "2022-08-09T03:29:43.682Z"
     },
-    "9": {
+    {
         "id": 9,
         "name": "Penny Lindgren",
         "email": "Penny9@hotmail.com",
@@ -109,7 +109,7 @@
         "read": false,
         "date": "2022-07-05T21:33:58.420Z"
     },
-    "10": {
+    {
         "id": 10,
         "name": "Alex Mosciski",
         "email": "Alex.Mosciski@yahoo.com",
@@ -120,7 +120,7 @@
         "read": false,
         "date": "2022-12-23T05:15:56.817Z"
     },
-    "11": {
+    {
         "id": 11,
         "name": "Antonio Gulgowski",
         "email": "Antonio.Gulgowski@hotmail.com",
@@ -131,7 +131,7 @@
         "read": false,
         "date": "2022-08-22T16:52:44.321Z"
     },
-    "12": {
+    {
         "id": 12,
         "name": "Raul Schumm",
         "email": "Raul.Schumm46@gmail.com",
@@ -142,7 +142,7 @@
         "read": false,
         "date": "2022-11-08T17:20:46.616Z"
     },
-    "13": {
+    {
         "id": 13,
         "name": "Paula Walter",
         "email": "Paula77@hotmail.com",
@@ -153,7 +153,7 @@
         "read": false,
         "date": "2022-07-14T21:02:32.171Z"
     },
-    "14": {
+    {
         "id": 14,
         "name": "Bryant Vandervort",
         "email": "Bryant_Vandervort8@hotmail.com",
@@ -164,7 +164,7 @@
         "read": false,
         "date": "2023-04-29T17:26:46.643Z"
     },
-    "15": {
+    {
         "id": 15,
         "name": "Lyle Padberg",
         "email": "Lyle87@yahoo.com",
@@ -175,7 +175,7 @@
         "read": false,
         "date": "2023-06-01T09:14:11.567Z"
     },
-    "16": {
+    {
         "id": 16,
         "name": "George Blanda",
         "email": "George_Blanda63@hotmail.com",
@@ -186,7 +186,7 @@
         "read": false,
         "date": "2022-10-16T14:06:40.540Z"
     },
-    "17": {
+    {
         "id": 17,
         "name": "Cary Grant",
         "email": "Cary_Grant32@yahoo.com",
@@ -197,7 +197,7 @@
         "read": false,
         "date": "2022-11-02T21:18:49.278Z"
     },
-    "18": {
+    {
         "id": 18,
         "name": "Marcus Feest",
         "email": "Marcus69@gmail.com",
@@ -208,7 +208,7 @@
         "read": false,
         "date": "2022-07-19T03:05:48.716Z"
     },
-    "19": {
+    {
         "id": 19,
         "name": "Darla Lind",
         "email": "Darla.Lind@yahoo.com",
@@ -219,7 +219,7 @@
         "read": false,
         "date": "2023-01-18T19:11:54.504Z"
     },
-    "20": {
+    {
         "id": 20,
         "name": "Douglas Bartell",
         "email": "Douglas_Bartell@hotmail.com",
@@ -230,7 +230,7 @@
         "read": false,
         "date": "2022-08-12T05:58:45.775Z"
     },
-    "21": {
+    {
         "id": 21,
         "name": "Miguel Crooks",
         "email": "Miguel43@gmail.com",
@@ -241,7 +241,7 @@
         "read": false,
         "date": "2022-10-11T09:31:22.833Z"
     },
-    "22": {
+    {
         "id": 22,
         "name": "Allison Emard",
         "email": "Allison36@hotmail.com",
@@ -252,7 +252,7 @@
         "read": false,
         "date": "2023-02-08T15:20:05.440Z"
     },
-    "23": {
+    {
         "id": 23,
         "name": "Mindy Greenholt",
         "email": "Mindy_Greenholt@hotmail.com",
@@ -263,7 +263,7 @@
         "read": false,
         "date": "2023-02-06T09:39:48.982Z"
     },
-    "24": {
+    {
         "id": 24,
         "name": "Gabriel Kuhlman",
         "email": "Gabriel83@gmail.com",
@@ -274,7 +274,7 @@
         "read": false,
         "date": "2023-04-01T20:48:58.231Z"
     },
-    "25": {
+    {
         "id": 25,
         "name": "Claudia Kiehn",
         "email": "Claudia30@gmail.com",
@@ -285,7 +285,7 @@
         "read": false,
         "date": "2023-05-14T20:35:12.734Z"
     },
-    "26": {
+    {
         "id": 26,
         "name": "Jean Mraz",
         "email": "Jean21@yahoo.com",
@@ -296,7 +296,7 @@
         "read": false,
         "date": "2023-02-15T15:19:14.439Z"
     },
-    "27": {
+    {
         "id": 27,
         "name": "Teresa Cartwright",
         "email": "Teresa_Cartwright11@yahoo.com",
@@ -307,7 +307,7 @@
         "read": false,
         "date": "2023-05-06T18:56:33.944Z"
     },
-    "28": {
+    {
         "id": 28,
         "name": "Judith Jakubowski",
         "email": "Judith.Jakubowski18@gmail.com",
@@ -318,7 +318,7 @@
         "read": false,
         "date": "2023-06-20T05:29:02.811Z"
     },
-    "29": {
+    {
         "id": 29,
         "name": "Elias Hammes",
         "email": "Elias_Hammes@gmail.com",
@@ -329,7 +329,7 @@
         "read": false,
         "date": "2022-08-30T18:48:14.741Z"
     },
-    "30": {
+    {
         "id": 30,
         "name": "Christian Prohaska",
         "email": "Christian_Prohaska@hotmail.com",
@@ -340,7 +340,7 @@
         "read": false,
         "date": "2023-04-06T20:57:57.255Z"
     },
-    "31": {
+    {
         "id": 31,
         "name": "Patty Kuhn",
         "email": "Patty.Kuhn34@hotmail.com",
@@ -351,7 +351,7 @@
         "read": false,
         "date": "2023-05-22T07:33:28.796Z"
     },
-    "32": {
+    {
         "id": 32,
         "name": "Bridget Shanahan",
         "email": "Bridget_Shanahan@yahoo.com",
@@ -362,7 +362,7 @@
         "read": false,
         "date": "2022-09-03T08:53:13.969Z"
     },
-    "33": {
+    {
         "id": 33,
         "name": "Tommie Sipes",
         "email": "Tommie93@yahoo.com",
@@ -373,7 +373,7 @@
         "read": false,
         "date": "2023-07-02T06:55:49.752Z"
     },
-    "34": {
+    {
         "id": 34,
         "name": "Angelina Dietrich",
         "email": "Angelina67@yahoo.com",
@@ -384,7 +384,7 @@
         "read": false,
         "date": "2023-02-13T22:31:44.576Z"
     },
-    "35": {
+    {
         "id": 35,
         "name": "Evelyn Mohr",
         "email": "Evelyn38@hotmail.com",
@@ -395,7 +395,7 @@
         "read": false,
         "date": "2023-01-06T19:57:40.381Z"
     },
-    "36": {
+    {
         "id": 36,
         "name": "Marian Feil",
         "email": "Marian_Feil@yahoo.com",
@@ -406,7 +406,7 @@
         "read": false,
         "date": "2022-08-21T04:17:14.046Z"
     },
-    "37": {
+    {
         "id": 37,
         "name": "Tony Fisher",
         "email": "Tony_Fisher@hotmail.com",
@@ -417,7 +417,7 @@
         "read": false,
         "date": "2023-05-19T20:00:01.827Z"
     },
-    "38": {
+    {
         "id": 38,
         "name": "Ruby Skiles",
         "email": "Ruby96@hotmail.com",
@@ -428,7 +428,7 @@
         "read": false,
         "date": "2023-02-01T03:06:11.734Z"
     },
-    "39": {
+    {
         "id": 39,
         "name": "Ian Leannon",
         "email": "Ian_Leannon@gmail.com",
@@ -439,7 +439,7 @@
         "read": false,
         "date": "2022-09-29T20:49:05.106Z"
     },
-    "40": {
+    {
         "id": 40,
         "name": "Jim Kertzmann",
         "email": "Jim.Kertzmann@gmail.com",
@@ -450,7 +450,7 @@
         "read": false,
         "date": "2023-06-30T10:29:06.222Z"
     },
-    "41": {
+    {
         "id": 41,
         "name": "Cheryl Upton",
         "email": "Cheryl_Upton85@gmail.com",
@@ -461,4 +461,4 @@
         "read": false,
         "date": "2022-10-25T08:18:28.796Z"
     }
-}
+]
