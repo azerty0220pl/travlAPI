@@ -4,8 +4,12 @@ import 'dotenv/config';
 
 const isAuthorized = (req: Request, res: Response, next: NextFunction) => {
     if (req.headers.authorization)
-        if (verify(req.headers.authorization, process.env.TOKEN_KEY!))
+        try {
+            verify(req.headers.authorization, process.env.TOKEN_KEY!);
             return next();
+        }
+        catch {}
+        
     return res.status(401).json({error: true, message: "Not Authorized"});
 }
 
