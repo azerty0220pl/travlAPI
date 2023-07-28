@@ -1,11 +1,11 @@
 interface MessageModel {
-    id: number,
+    id: string,
     name: string,
     email: string,
     phone: string,
     subject: string,
     message: string,
-    date: string,
+    date: Date,
     archived: boolean,
     read: boolean
 }

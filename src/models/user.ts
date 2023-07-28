@@ -1,11 +1,12 @@
 interface UserModel {
-    id: number,
+    id: string,
     name: string,
     email: string,
     phone: string,
-    joined: string,
+    joined: Date,
     description: string,
-    status: "Active" | "Inactive"
+    password?: string,
+    status: boolean
 }
 
 export default UserModel;
