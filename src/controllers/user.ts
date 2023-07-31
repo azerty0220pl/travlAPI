@@ -32,7 +32,7 @@ const userController = {
         });
     },
     update: (req: Request, res: Response) => {
-        userService.update(req.body.user.id, req.body.user).then(x => {
+        userService.update(req.body.user).then(x => {
             if (x === 'User updated')
                 return res.json({ error: false, message: x });
             else
