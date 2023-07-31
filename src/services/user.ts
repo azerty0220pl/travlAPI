@@ -9,7 +9,7 @@ const userSchema = new Schema({
     description: { type: String, required: true },
     joined: { type: Date, required: true },
     left: { type: Date, required: false },
-    password: { type: String, required: true },
+    password: { type: String, required: true }
 });
 
 const User = model("User", userSchema);
