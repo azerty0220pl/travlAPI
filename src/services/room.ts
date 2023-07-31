@@ -12,7 +12,7 @@ const roomSchema = new Schema({
     cancel: { type: String, required: true }
 });
 
-const Room = model("Room", roomSchema);
+export const Room = model("Room", roomSchema);
 
 
 const roomService = {
