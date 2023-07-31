@@ -15,10 +15,33 @@ app.use(json());
 
 app.get("/", homeController);
 
-app.get("/bookings", isAuthorized, bookingController);
-app.get("/messages", isAuthorized, messageController);
-app.get("/rooms", isAuthorized, roomController);
-app.get("/users", isAuthorized, userController.getPage);
+app.route("/bookings", isAuthorized)
+    .get(bookingController.getPage)
+    .post(bookingController.new);
+app.route("/bookings/:id")
+    .get(bookingController.getById)
+    .put(bookingController.update);
+
+app.route("/messages", isAuthorized)
+    .get(messageController.getPage)
+    .post(messageController.new);
+app.route("/messages/:id")
+    .get(messageController.getById)
+    .put(messageController.update);
+
+app.route("/rooms", isAuthorized)
+    .get(roomController.getPage)
+    .post(roomController.new);
+app.route("/rooms/:id")
+    .get(roomController.getById)
+    .put(roomController.update);
+
+app.route("/users", isAuthorized)
+    .get(userController.getPage)
+    .post(userController.new);
+app.route("/users/:id")
+    .get(userController.getById)
+    .put(userController.update);
 
 app.post("/login", loginController);
 
