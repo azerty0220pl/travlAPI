@@ -1,12 +1,12 @@
 interface RoomModel {
-    id: string,
+    id: number,
     name: string,
-    type: number,
+    type: "Single Bed" | "Double Bed" | "Superior Double" | "Suite",
     ammenities: string[],
     cancel: string,
     price: number,
     offer: number,
-    status: boolean
+    status: "Booked" | "Available"
 }
 
 export default RoomModel;

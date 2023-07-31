@@ -11,14 +11,14 @@ const express = require('express');
 
 const app = express();
 
-app.use(json());
+app.use(json())
 
 app.get("/", homeController);
 
 app.get("/bookings", isAuthorized, bookingController);
 app.get("/messages", isAuthorized, messageController);
 app.get("/rooms", isAuthorized, roomController);
-app.get("/users", isAuthorized, userController.getPage);
+app.get("/users", isAuthorized, userController);
 
 app.post("/login", loginController);
 
