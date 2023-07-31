@@ -60,9 +60,9 @@ const userService = {
             return "Database error"
         }
     },
-    update: async (name: string, message: MessageModel): Promise<string> => {
+    update: async (message: MessageModel): Promise<string> => {
         try {
-            await Message.findOneAndUpdate({ name: name }, message).then(doc => {
+            await Message.findByIdAndUpdate(message.id, message).then(doc => {
                 if (doc)
                     return "Message updated";
             });
@@ -74,7 +74,7 @@ const userService = {
     },
     new: async (message: MessageModel): Promise<string> => {
         try {
-            let doc = await Message.findOne({ username: message.name });
+            let doc = await Message.findById(message.id);
 
             if (!doc) {
                 let msg = new Message(message);

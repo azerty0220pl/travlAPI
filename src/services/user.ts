@@ -33,7 +33,7 @@ const userService = {
                 }
             });
         } catch {
-            return "Database error"
+            return "Database error";
         }
 
         return "Not found";
@@ -55,7 +55,7 @@ const userService = {
                 }
             });
         } catch {
-            return "Database error"
+            return "Database error";
         }
 
         return "Not found";
@@ -75,24 +75,24 @@ const userService = {
                 };
             });
         } catch {
-            return "Database error"
+            return "Database error";
         }
     },
-    update: async (name: string, user: UserModel): Promise<string> => {
+    update: async (user: UserModel): Promise<string> => {
         try {
-            await User.findOneAndUpdate({ name: name }, user).then(doc => {
+            await User.findByIdAndUpdate(user.id, user).then(doc => {
                 if (doc)
                     return "User updated";
             });
         } catch {
-            return "Database error"
+            return "Database error";
         }
 
         return "Not updated";
     },
     new: async (user: UserModel): Promise<string> => {
         try {
-            let doc = await User.findOne({ username: user.name });
+            let doc = await User.findById(user.id);
 
             if (!doc) {
                 let us = new User(user);
@@ -103,7 +103,7 @@ const userService = {
                 return "User already exist";
             }
         } catch {
-            return "Database error"
+            return "Database error";
         }
     }
 };
