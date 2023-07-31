@@ -6,6 +6,7 @@ interface RoomModel {
     cancel: string,
     price: number,
     offer: number,
+    bookings: object[],
     status: boolean
 }
 

@@ -5,7 +5,8 @@ interface BookingModel {
     in: Date,
     out: Date,
     request: string,
-    status: number
+    status: number,
+    room: string
 }
 
 export default BookingModel;
