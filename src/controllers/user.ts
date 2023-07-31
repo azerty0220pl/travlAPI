@@ -20,7 +20,7 @@ const userController = {
             if (typeof x === 'string')
                 return res.json({ error: true, message: x });
             else
-                return res.json({ users: x });
+                return res.json({ error: false, users: x });
         });
     },
     getById: (req: Request, res: Response) => {
@@ -28,11 +28,14 @@ const userController = {
             if (typeof x === 'string')
                 return res.json({ error: true, message: x });
             else
-                return res.json({ user: x });
+                return res.json({ error: false, user: x });
         });
     },
     update: (req: Request, res: Response) => {
-        userService.update(req.body.user).then(x => {
+        let user = req.body.user;
+        user.id = req.params.id;
+
+        userService.update(user).then(x => {
             if (x === 'User updated')
                 return res.json({ error: false, message: x });
             else

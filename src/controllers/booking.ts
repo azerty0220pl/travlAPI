@@ -21,7 +21,7 @@ const bookingController = {
             if (typeof x === 'string')
                 return res.json({ error: true, message: x });
             else
-                return res.json({ booking: x });
+                return res.json({ error: false, booking: x });
         });
     },
     getById: (req: Request, res: Response) => {
@@ -29,11 +29,14 @@ const bookingController = {
             if (typeof x === 'string')
                 return res.json({ error: true, message: x });
             else
-                return res.json({ booking: x });
+                return res.json({ error: false, booking: x });
         });
     },
     update: (req: Request, res: Response) => {
-        bookingService.update(req.body.booking).then(x => {
+        let book = req.body.booking;
+        book.id = req.params.id;
+
+        bookingService.update(book).then(x => {
             if (x === 'Booking updated')
                 return res.json({ error: false, booking: x });
             else

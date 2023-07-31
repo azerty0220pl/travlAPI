@@ -34,7 +34,7 @@ const messageService = {
                 };
             }
         } catch {
-            return "Database error"
+            return "Database error";
         }
 
         return "Not found";

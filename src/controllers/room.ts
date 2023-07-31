@@ -22,7 +22,7 @@ const roomController = {
             if (typeof x === 'string')
                 return res.json({ error: true, message: x });
             else
-                return res.json({ room: x });
+                return res.json({ error: false, room: x });
         });
     },
     getById: (req: Request, res: Response) => {
@@ -30,11 +30,14 @@ const roomController = {
             if (typeof x === 'string')
                 return res.json({ error: true, message: x });
             else
-                return res.json({ room: x });
+                return res.json({ error: false, room: x });
         });
     },
     update: (req: Request, res: Response) => {
-        roomService.update(req.body.room).then(x => {
+        let room = req.body.room;
+        room.id = req.params.id;
+
+        roomService.update(room).then(x => {
             if (x === 'Room updated')
                 return res.json({ error: false, message: x });
             else

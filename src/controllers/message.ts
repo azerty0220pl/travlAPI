@@ -19,7 +19,7 @@ const messageController = {
             if (typeof x === 'string')
                 return res.json({ error: true, message: x });
             else
-                return res.json({ message: x });
+                return res.json({ error: false, message: x });
         });
     },
     getById: (req: Request, res: Response) => {
@@ -27,11 +27,14 @@ const messageController = {
             if (typeof x === 'string')
                 return res.json({ error: true, message: x });
             else
-                return res.json({ message: x });
+                return res.json({ error: false, message: x });
         });
     },
     update: (req: Request, res: Response) => {
-        messageService.update(req.body.message).then(x => {
+        let msg = req.body.booking;
+        msg.id = req.params.id;
+
+        messageService.update(msg).then(x => {
             if (x === 'Message updated')
                 return res.json({ error: false, message: x });
             else
