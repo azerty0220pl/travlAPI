@@ -23,14 +23,15 @@ describe("Testing booking", () => {
 
         const res = await Request(app).get("/bookings").set('Authorization', token);
 
+        const aux = res.body.bookings[0];
         expect(res.statusCode).toEqual(200);
-        expect("id" in res.body.bookings[0]).toEqual(true);
-        expect("name" in res.body.bookings[0]).toEqual(true);
-        expect("order" in res.body.bookings[0]).toEqual(true);
-        expect("in" in res.body.bookings[0]).toEqual(true);
-        expect("out" in res.body.bookings[0]).toEqual(true);
-        expect("request" in res.body.bookings[0]).toEqual(true);
-        expect("status" in res.body.bookings[0]).toEqual(true);
+        expect(aux).toHaveProperty("id");
+        expect(aux).toHaveProperty("name");
+        expect(aux).toHaveProperty("order");
+        expect(aux).toHaveProperty("in");
+        expect(aux).toHaveProperty("out");
+        expect(aux).toHaveProperty("request");
+        expect(aux).toHaveProperty("status");
     });
 
 });

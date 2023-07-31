@@ -23,16 +23,17 @@ describe("Testing message", () => {
 
         const res = await Request(app).get("/messages").set('Authorization', token);
 
+        const aux = res.body.messages[0];
         expect(res.statusCode).toEqual(200);
-        expect("id" in res.body.messages[0]).toEqual(true);
-        expect("name" in res.body.messages[0]).toEqual(true);
-        expect("email" in res.body.messages[0]).toEqual(true);
-        expect("phone" in res.body.messages[0]).toEqual(true);
-        expect("subject" in res.body.messages[0]).toEqual(true);
-        expect("message" in res.body.messages[0]).toEqual(true);
-        expect("archived" in res.body.messages[0]).toEqual(true);
-        expect("read" in res.body.messages[0]).toEqual(true);
-        expect("date" in res.body.messages[0]).toEqual(true);
+        expect(aux).toHaveProperty("id");
+        expect(aux).toHaveProperty("name");
+        expect(aux).toHaveProperty("email");
+        expect(aux).toHaveProperty("phone");
+        expect(aux).toHaveProperty("subject");
+        expect(aux).toHaveProperty("message");
+        expect(aux).toHaveProperty("archived");
+        expect(aux).toHaveProperty("read");
+        expect(aux).toHaveProperty("date");
     });
 
 });

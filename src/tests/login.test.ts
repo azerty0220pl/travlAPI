@@ -1,5 +1,5 @@
 import Request from 'supertest';
-import {describe, expect, it} from '@jest/globals';
+import { describe, expect, it } from '@jest/globals';
 import app from '../app';
 
 describe("Testing login", () => {
@@ -47,15 +47,16 @@ describe("Testing login", () => {
                 username: "admin",
                 password: "password"
             });
-            
+
+        const aux = res.body.user;
         expect(res.statusCode).toEqual(202);
-        expect("id" in res.body.user).toEqual(true);
-        expect("name" in res.body.user).toEqual(true);
-        expect("email" in res.body.user).toEqual(true);
-        expect("phone" in res.body.user).toEqual(true);
-        expect("joined" in res.body.user).toEqual(true);
-        expect("description" in res.body.user).toEqual(true);
-        expect("status" in res.body.user).toEqual(true);
+        expect(aux).toHaveProperty("id");
+        expect(aux).toHaveProperty("name");
+        expect(aux).toHaveProperty("email");
+        expect(aux).toHaveProperty("phone");
+        expect(aux).toHaveProperty("joined");
+        expect(aux).toHaveProperty("description");
+        expect(aux).toHaveProperty("status");
         expect(typeof res.body.token).toEqual("string");
     });
 });

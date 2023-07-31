@@ -23,14 +23,15 @@ describe("Testing room", () => {
 
         const res = await Request(app).get("/rooms").set('Authorization', token);
 
+        let aux = res.body.rooms[0];
         expect(res.statusCode).toEqual(200);
-        expect("id" in res.body.rooms[0]).toEqual(true);
-        expect("name" in res.body.rooms[0]).toEqual(true);
-        expect("type" in res.body.rooms[0]).toEqual(true);
-        expect("ammenities" in res.body.rooms[0]).toEqual(true);
-        expect("price" in res.body.rooms[0]).toEqual(true);
-        expect("offer" in res.body.rooms[0]).toEqual(true);
-        expect("status" in res.body.rooms[0]).toEqual(true);
+        expect(aux).toHaveProperty("id");
+        expect(aux).toHaveProperty("name");
+        expect(aux).toHaveProperty("type");
+        expect(aux).toHaveProperty("ammenities");
+        expect(aux).toHaveProperty("price");
+        expect(aux).toHaveProperty("offer");
+        expect(aux).toHaveProperty("status");
     });
 
 });
