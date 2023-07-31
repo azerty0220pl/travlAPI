@@ -3,7 +3,7 @@ import BookingModel from "../models/booking";
 
 
 const bookingSchema = new Schema({
-    name: { type: String, required: true},
+    name: { type: String, required: true },
     order: { type: Date, required: true },
     in: { type: Date, required: true },
     out: { type: Date, required: true },
@@ -15,23 +15,22 @@ const bookingSchema = new Schema({
 const Booking = model("Booking", bookingSchema);
 
 
-const userService = {
+const bookingService = {
     fetchById: async (id: String): Promise<BookingModel | string> => {
         try {
-            await Booking.findById(id).then(doc => {
-                if (doc) {
-                    return {
-                        id: doc.id,
-                        name: doc.name,
-                        order: doc.order,
-                        in: doc.in,
-                        out: doc.out,
-                        request: doc.request,
-                        room: doc.room,
-                        status: doc.refund ? 0 : 1
-                    };
-                }
-            });
+            const doc = await Booking.findById(id)
+            if (doc) {
+                return {
+                    id: doc.id,
+                    name: doc.name,
+                    order: doc.order,
+                    in: doc.in,
+                    out: doc.out,
+                    request: doc.request,
+                    room: doc.room,
+                    status: doc.refund ? 0 : 1
+                };
+            }
         } catch {
             return "Database error";
         }
@@ -40,7 +39,7 @@ const userService = {
     },
     fetchPage: async (page: number, limit: number, filter: object, order: { [key: string]: 1 | -1 }): Promise<BookingModel[] | string> => {
         try {
-            let docs = await Booking.find(filter, {}, { skip: page * (limit - 1), limit: limit }).sort(order);
+            const docs = await Booking.find(filter, {}, { skip: page * (limit - 1), limit: limit }).sort(order);
             return docs.map(el => {
                 return {
                     id: el.id,
@@ -71,10 +70,10 @@ const userService = {
     },
     new: async (book: BookingModel): Promise<string> => {
         try {
-            let doc = await Booking.findById(book.id);
+            const doc = await Booking.findById(book.id);
 
             if (!doc) {
-                let bk = new Booking(book);
+                const bk = new Booking(book);
 
                 await bk.save()
                 return "Booking saved";
@@ -87,4 +86,4 @@ const userService = {
     }
 };
 
-export default userService;
+export default bookingService;

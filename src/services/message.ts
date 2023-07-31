@@ -16,24 +16,23 @@ const messageSchema = new Schema({
 const Message = model("Message", messageSchema);
 
 
-const userService = {
+const messageService = {
     fetchById: async (id: String): Promise<MessageModel | string> => {
         try {
-            await Message.findById(id).then(doc => {
-                if (doc) {
-                    return {
-                        id: doc.id,
-                        name: doc.name,
-                        phone: doc.phone,
-                        email: doc.email,
-                        subject: doc.subject,
-                        message: doc.message,
-                        archived: doc.archived,
-                        read: doc.read,
-                        date: doc.date
-                    };
-                }
-            });
+            const doc = await Message.findById(id)
+            if (doc) {
+                return {
+                    id: doc.id,
+                    name: doc.name,
+                    phone: doc.phone,
+                    email: doc.email,
+                    subject: doc.subject,
+                    message: doc.message,
+                    archived: doc.archived,
+                    read: doc.read,
+                    date: doc.date
+                };
+            }
         } catch {
             return "Database error"
         }
@@ -42,7 +41,7 @@ const userService = {
     },
     fetchPage: async (page: number, limit: number, filter: object, order: { [key: string]: 1 | -1 }): Promise<MessageModel[] | string> => {
         try {
-            let docs = await Message.find(filter, {}, { skip: page * (limit - 1), limit: limit }).sort(order);
+            const docs = await Message.find(filter, {}, { skip: page * (limit - 1), limit: limit }).sort(order);
             return docs.map(el => {
                 return {
                     id: el.id,
@@ -74,10 +73,10 @@ const userService = {
     },
     new: async (message: MessageModel): Promise<string> => {
         try {
-            let doc = await Message.findById(message.id);
+            const doc = await Message.findById(message.id);
 
             if (!doc) {
-                let msg = new Message(message);
+                const msg = new Message(message);
 
                 await msg.save()
                 return "Message saved";
@@ -90,4 +89,4 @@ const userService = {
     }
 };
 
-export default userService;
+export default messageService;

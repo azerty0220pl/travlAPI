@@ -18,20 +18,19 @@ const User = model("User", userSchema);
 const userService = {
     fetchOne: async (name: String): Promise<UserModel | string> => {
         try {
-            await User.findOne({ name: name }).then(doc => {
-                if (doc) {
-                    return {
-                        id: doc.id,
-                        name: doc.name,
-                        phone: doc.phone,
-                        email: doc.email,
-                        description: doc.description,
-                        joined: doc.joined,
-                        password: doc.password,
-                        status: doc.left ? false : true
-                    };
-                }
-            });
+            const doc = await User.findOne({ name: name })
+            if (doc) {
+                return {
+                    id: doc.id,
+                    name: doc.name,
+                    phone: doc.phone,
+                    email: doc.email,
+                    description: doc.description,
+                    joined: doc.joined,
+                    password: doc.password,
+                    status: doc.left ? false : true
+                };
+            }
         } catch {
             return "Database error";
         }
@@ -40,20 +39,19 @@ const userService = {
     },
     fetchById: async (id: String): Promise<UserModel | string> => {
         try {
-            await User.findById(id).then(doc => {
-                if (doc) {
-                    return {
-                        id: doc.id,
-                        name: doc.name,
-                        phone: doc.phone,
-                        email: doc.email,
-                        description: doc.description,
-                        joined: doc.joined,
-                        password: doc.password,
-                        status: doc.left ? false : true
-                    };
-                }
-            });
+            const doc = await User.findById(id)
+            if (doc) {
+                return {
+                    id: doc.id,
+                    name: doc.name,
+                    phone: doc.phone,
+                    email: doc.email,
+                    description: doc.description,
+                    joined: doc.joined,
+                    password: doc.password,
+                    status: doc.left ? false : true
+                };
+            }
         } catch {
             return "Database error";
         }
@@ -92,10 +90,10 @@ const userService = {
     },
     new: async (user: UserModel): Promise<string> => {
         try {
-            let doc = await User.findById(user.id);
+            const doc = await User.findById(user.id);
 
             if (!doc) {
-                let us = new User(user);
+                const us = new User(user);
 
                 await us.save()
                 return "User saved";
