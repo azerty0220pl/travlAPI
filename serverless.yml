@@ -8,9 +8,9 @@ package:
     - "dist/**"
 provider:
   name: aws
-  region: eu-west-1
+  region: eu-west-3
   environment:
-    SECRET: ${file(.env.json):SECRET}
+    MONGO_URI: ${file(.env.json):MONGO_URI}
   runtime: nodejs18.x
 functions:
   app:
