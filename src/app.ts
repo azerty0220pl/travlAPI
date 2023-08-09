@@ -1,4 +1,6 @@
 import { json } from "express";
+import express from "express";
+import cors from "cors";
 import homeController from "./controllers/home";
 import bookingController from "./controllers/booking";
 import loginController from "./controllers/login";
@@ -8,12 +10,16 @@ import userController from "./controllers/user";
 import isAuthorized from "./middleware/login";
 import connect from './services/connect';
 
-const express = require('express');
 connect().then(() => {
     console.log("Connected to database");
 });
 
 const app = express();
+
+app.use(cors({
+    origin: 'https://localhost:3000',
+    credentials: true
+}));
 
 app.use(json());
 
