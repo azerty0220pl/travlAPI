@@ -6,8 +6,9 @@ import UserModel from '../models/user';
 
 const loginController = (req: Request, res: Response) => {
     userService.fetchOne(req.body.username).then(user => {
-        if (user && req.body.password === (user as UserModel).password)
+        if (typeof(user) !== "string" && req.body.password === (user as UserModel).password)
             res.status(202).json({
+                error: false,
                 user: user,
                 token: sign(String((user as UserModel).id), process.env.TOKEN_KEY!)
             });
