@@ -70,16 +70,10 @@ const bookingService = {
     },
     new: async (book: BookingModel): Promise<string> => {
         try {
-            const doc = await Booking.findById(book.id);
+            const bk = new Booking(book);
 
-            if (!doc) {
-                const bk = new Booking(book);
-
-                await bk.save()
-                return "Booking saved";
-            } else {
-                return "Booking already exist";
-            }
+            await bk.save()
+            return "Booking saved";
         } catch {
             return "Database error";
         }

@@ -72,7 +72,7 @@ const roomService = {
     },
     new: async (room: RoomModel): Promise<string> => {
         try {
-            const doc = await Room.findById(room.id);
+            const doc = await Room.findOne({ name: room.name });
 
             if (!doc) {
                 const rm = new Room(room);

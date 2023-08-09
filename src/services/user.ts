@@ -90,7 +90,7 @@ const userService = {
     },
     new: async (user: UserModel): Promise<string> => {
         try {
-            const doc = await User.findById(user.id);
+            const doc = await User.findOne({ name: user.name });
 
             if (!doc) {
                 const us = new User(user);

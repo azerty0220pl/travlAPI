@@ -73,16 +73,10 @@ const messageService = {
     },
     new: async (message: MessageModel): Promise<string> => {
         try {
-            const doc = await Message.findById(message.id);
+            const msg = new Message(message);
 
-            if (!doc) {
-                const msg = new Message(message);
-
-                await msg.save()
-                return "Message saved";
-            } else {
-                return "Message already exist";
-            }
+            await msg.save()
+            return "Message saved";
         } catch {
             return "Database error"
         }
