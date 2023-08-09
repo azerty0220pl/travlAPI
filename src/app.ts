@@ -6,8 +6,12 @@ import messageController from "./controllers/message";
 import roomController from "./controllers/room";
 import userController from "./controllers/user";
 import isAuthorized from "./middleware/login";
+import connect from './services/connect';
 
 const express = require('express');
+connect().then(() => {
+    console.log("Connected to database");
+});
 
 const app = express();
 
