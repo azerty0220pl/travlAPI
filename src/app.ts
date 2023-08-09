@@ -15,33 +15,33 @@ app.use(json());
 
 app.get("/", homeController);
 
-app.route("/bookings", isAuthorized)
-    .get(bookingController.getPage)
-    .post(bookingController.new);
+app.route("/bookings")
+    .get(isAuthorized, bookingController.getPage)
+    .post(isAuthorized, bookingController.new);
 app.route("/bookings/:id")
-    .get(bookingController.getById)
-    .put(bookingController.update);
+    .get(isAuthorized, bookingController.getById)
+    .put(isAuthorized, bookingController.update);
 
-app.route("/messages", isAuthorized)
-    .get(messageController.getPage)
-    .post(messageController.new);
+app.route("/messages")
+    .get(isAuthorized, messageController.getPage)
+    .post(isAuthorized, messageController.new);
 app.route("/messages/:id")
-    .get(messageController.getById)
-    .put(messageController.update);
+    .get(isAuthorized, messageController.getById)
+    .put(isAuthorized, messageController.update);
 
-app.route("/rooms", isAuthorized)
-    .get(roomController.getPage)
-    .post(roomController.new);
+app.route("/rooms")
+    .get(isAuthorized, roomController.getPage)
+    .post(isAuthorized, roomController.new);
 app.route("/rooms/:id")
-    .get(roomController.getById)
-    .put(roomController.update);
+    .get(isAuthorized, roomController.getById)
+    .put(isAuthorized, roomController.update);
 
-app.route("/users", isAuthorized)
-    .get(userController.getPage)
-    .post(userController.new);
+app.route("/users")
+    .get(isAuthorized, userController.getPage)
+    .post(isAuthorized, userController.new);
 app.route("/users/:id")
-    .get(userController.getById)
-    .put(userController.update);
+    .get(isAuthorized, userController.getById)
+    .put(isAuthorized, userController.update);
 
 app.post("/login", loginController);
 
