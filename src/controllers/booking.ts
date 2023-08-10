@@ -17,38 +17,43 @@ const filters: Filters = {
 
 const bookingController = {
     getPage: (req: Request, res: Response) => {
-        bookingService.fetchPage(parseInt(req.query.page as string) || 0, parseInt(req.query.limit as string) || 10, filters[req.query.filter as string || "all"], orders[req.query.order as string || "order"]).then(x => {
-            if (typeof x === 'string')
-                return res.json({ error: true, message: x });
-            else
-                return res.json({ error: false, booking: x });
-        });
+        bookingService.fetchPage(parseInt(req.query.page as string) || 0,
+            parseInt(req.query.limit as string) || 10,
+            filters[req.query.filter as string || "all"],
+            orders[req.query.order as string || "order"]).then(data => {
+                if (typeof data === 'string')
+                    return res.json({ error: true, message: data });
+                else
+                    bookingService.count().then(count => {
+                        return res.json({ error: false, booking: data, count: count });
+                    });
+            });
     },
     getById: (req: Request, res: Response) => {
-        bookingService.fetchById(req.params.id).then(x => {
-            if (typeof x === 'string')
-                return res.json({ error: true, message: x });
+        bookingService.fetchById(req.params.id).then(data => {
+            if (typeof data === 'string')
+                return res.json({ error: true, message: data });
             else
-                return res.json({ error: false, booking: x });
+                return res.json({ error: false, booking: data });
         });
     },
     update: (req: Request, res: Response) => {
         let book = req.body.booking;
         book.id = req.params.id;
 
-        bookingService.update(book).then(x => {
-            if (x === 'Booking updated')
-                return res.json({ error: false, booking: x });
+        bookingService.update(book).then(data => {
+            if (data === 'Booking updated')
+                return res.json({ error: false, booking: data });
             else
-                return res.json({ error: true, message: x });
+                return res.json({ error: true, message: data });
         });
     },
     new: (req: Request, res: Response) => {
-        bookingService.new(req.body.booking).then(x => {
-            if (x === 'Booking saved')
-                return res.json({ error: false, booking: x });
+        bookingService.new(req.body.booking).then(data => {
+            if (data === 'Booking saved')
+                return res.json({ error: false, booking: data });
             else
-                return res.json({ error: true, message: x });
+                return res.json({ error: true, message: data });
         });
     }
 };
