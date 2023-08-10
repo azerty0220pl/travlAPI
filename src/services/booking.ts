@@ -1,5 +1,6 @@
 import { Schema, model } from "mongoose";
 import BookingModel from "../models/booking";
+import roomService from "./room";
 
 
 const bookingSchema = new Schema({
@@ -72,11 +73,25 @@ const bookingService = {
         try {
             const bk = new Booking(book);
 
-            await bk.save()
+            await bk.save();
+            const rm = await roomService.fetchOne(book.room);
+
+            if (typeof (rm) === "string")
+                return "Room does not exist";
+
+            rm.bookings.push({
+                in: book.in,
+                out: book.out
+            });
+
+            roomService.update(rm);
             return "Booking saved";
         } catch {
             return "Database error";
         }
+    },
+    count: async () => {
+        return await Booking.count({});
     }
 };
 
