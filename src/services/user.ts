@@ -95,7 +95,7 @@ const userService = {
             if (!doc) {
                 const us = new User(user);
 
-                await us.save()
+                await us.save();
                 return "User saved";
             } else {
                 return "User already exist";
@@ -103,6 +103,9 @@ const userService = {
         } catch {
             return "Database error";
         }
+    },
+    count: async () => {
+        return await User.count({});
     }
 };
 
