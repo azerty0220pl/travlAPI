@@ -1,7 +1,6 @@
 import { Schema, model } from "mongoose";
 import RoomModel from "../models/room";
 
-
 const roomSchema = new Schema({
     name: { type: String, required: true, unique: true },
     type: { type: Number, required: true },
@@ -16,6 +15,18 @@ export const Room = model("Room", roomSchema);
 
 
 const roomService = {
+    fetchOne: async (name: String): Promise<any | string> => {
+        try {
+            const doc = await Room.findOne({ name: name })
+            if (doc) {
+                return doc;
+            }
+        } catch {
+            return "Database error";
+        }
+
+        return "Not found";
+    },
     fetchById: async (id: string): Promise<RoomModel | string> => {
         try {
             const doc = await Room.findById(id)
@@ -77,7 +88,7 @@ const roomService = {
             if (!doc) {
                 const rm = new Room(room);
 
-                await rm.save()
+                await rm.save();
                 return "Room saved";
             } else {
                 return "Room already exist";
@@ -85,6 +96,9 @@ const roomService = {
         } catch {
             return "Database error";
         }
+    },
+    count: async () => {
+        return await Room.count({});
     }
 };
 
