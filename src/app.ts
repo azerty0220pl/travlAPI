@@ -50,6 +50,7 @@ app.route("/users/:id")
     .get(isAuthorized, userController.getById)
     .put(isAuthorized, userController.update);
 
-app.post("/login", loginController);
+app.post("/login", loginController.login);
+app.post("/logged", isAuthorized, loginController.logged)
 
 export default app;
