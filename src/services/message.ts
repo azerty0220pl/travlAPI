@@ -75,11 +75,14 @@ const messageService = {
         try {
             const msg = new Message(message);
 
-            await msg.save()
+            await msg.save();
             return "Message saved";
         } catch {
             return "Database error"
         }
+    },
+    count: async () => {
+        return await Message.count({});
     }
 };
 
