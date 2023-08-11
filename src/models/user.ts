@@ -1,5 +1,7 @@
+import { ObjectId } from "mongoose";
+
 interface UserModel {
-    id: string,
+    _id: string | ObjectId,
     name: string,
     email: string,
     phone: string,

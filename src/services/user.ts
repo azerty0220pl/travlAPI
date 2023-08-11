@@ -8,7 +8,7 @@ const userSchema = new Schema({
     email: { type: String, required: true },
     description: { type: String, required: true },
     joined: { type: Date, required: true },
-    left: { type: Date, required: false },
+    status: { type: Boolean, required: true },
     password: { type: String, required: true }
 });
 
@@ -20,16 +20,7 @@ const userService = {
         try {
             const doc = await User.findOne({ name: name })
             if (doc) {
-                return {
-                    id: doc.id,
-                    name: doc.name,
-                    phone: doc.phone,
-                    email: doc.email,
-                    description: doc.description,
-                    joined: doc.joined,
-                    password: doc.password,
-                    status: doc.left ? false : true
-                };
+                return doc as unknown as UserModel;
             }
         } catch {
             return "Database error";
@@ -41,16 +32,7 @@ const userService = {
         try {
             const doc = await User.findById(id)
             if (doc) {
-                return {
-                    id: doc.id,
-                    name: doc.name,
-                    phone: doc.phone,
-                    email: doc.email,
-                    description: doc.description,
-                    joined: doc.joined,
-                    password: doc.password,
-                    status: doc.left ? false : true
-                };
+                return doc as unknown as UserModel;
             }
         } catch {
             return "Database error";
@@ -62,26 +44,18 @@ const userService = {
         try {
             let docs = await User.find(filter, {}, { skip: page * (limit - 1), limit: limit }).sort(order);
             return docs.map(el => {
-                return {
-                    id: el.id,
-                    name: el.name,
-                    phone: el.phone,
-                    email: el.email,
-                    description: el.description,
-                    joined: el.joined,
-                    status: el.left ? false : true
-                };
+                return el as unknown as UserModel;
             });
         } catch {
             return "Database error";
         }
     },
-    update: async (user: UserModel): Promise<string> => {
+    update: async (user: UserModel): Promise<UserModel | string> => {
         try {
-            await User.findByIdAndUpdate(user.id, user).then(doc => {
-                if (doc)
-                    return "User updated";
-            });
+            const doc = await User.findByIdAndUpdate(user._id, user);
+            
+            if (doc)
+                return doc as unknown as UserModel;
         } catch {
             return "Database error";
         }

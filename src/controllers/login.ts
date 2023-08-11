@@ -11,7 +11,7 @@ const loginController = {
                 return res.status(202).json({
                     error: false,
                     user: user,
-                    token: sign(String((user as UserModel).id), process.env.TOKEN_KEY!)
+                    token: sign(String((user as UserModel)._id), process.env.TOKEN_KEY!)
                 });
             return res.status(401).json({ error: true, message: "Not Authorized" });
         });

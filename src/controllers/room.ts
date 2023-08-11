@@ -26,7 +26,7 @@ const roomController = {
                     return res.json({ error: true, message: data });
                 else
                     roomService.count().then(count => {
-                        return res.json({ error: false, booking: data, count: count });
+                        return res.json({ error: false, room: data, count: count });
                     });
             });
     },
@@ -44,7 +44,7 @@ const roomController = {
 
         roomService.update(room).then(data => {
             if (data === 'Room updated')
-                return res.json({ error: false, message: data });
+                return res.json({ error: false, room: data });
             else
                 return res.json({ error: true, message: data });
         });
@@ -52,7 +52,7 @@ const roomController = {
     new: (req: Request, res: Response) => {
         roomService.new(req.body.room).then(data => {
             if (data === 'Room saved')
-                return res.json({ error: false, message: data });
+                return res.json({ error: false, room: data });
             else
                 return res.json({ error: true, message: data });
         });

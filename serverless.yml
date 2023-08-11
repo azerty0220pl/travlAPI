@@ -11,6 +11,7 @@ provider:
   region: eu-west-3
   environment:
     MONGO_URI: ${file(.env.json):MONGO_URI}
+    TOKEN_KEY: ${file(.env.json):TOKEN_KEYI}
   runtime: nodejs18.x
 functions:
   app:
