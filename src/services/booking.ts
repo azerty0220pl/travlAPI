@@ -21,16 +21,7 @@ const bookingService = {
         try {
             const doc = await Booking.findById(id)
             if (doc) {
-                return {
-                    id: doc.id,
-                    name: doc.name,
-                    order: doc.order,
-                    in: doc.in,
-                    out: doc.out,
-                    request: doc.request,
-                    room: doc.room,
-                    status: doc.refund ? 0 : 1
-                };
+                return doc as unknown as BookingModel;
             }
         } catch {
             return "Database error";
@@ -42,16 +33,7 @@ const bookingService = {
         try {
             const docs = await Booking.find(filter, {}, { skip: page * (limit - 1), limit: limit }).sort(order);
             return docs.map(el => {
-                return {
-                    id: el.id,
-                    name: el.name,
-                    order: el.order,
-                    in: el.in,
-                    out: el.out,
-                    request: el.request,
-                    room: el.room,
-                    status: el.refund ? 0 : 1
-                };
+                return el as unknown as BookingModel;
             });
         } catch {
             return "Database error";
@@ -59,9 +41,9 @@ const bookingService = {
     },
     update: async (book: BookingModel): Promise<string> => {
         try {
-            await Booking.findByIdAndUpdate(book.id, book).then(doc => {
+            await Booking.findByIdAndUpdate(book._id, book).then(doc => {
                 if (doc)
-                    return "Booking updated";
+                return doc as unknown as BookingModel;
             });
         } catch {
             return "Database error";

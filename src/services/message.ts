@@ -21,17 +21,7 @@ const messageService = {
         try {
             const doc = await Message.findById(id)
             if (doc) {
-                return {
-                    id: doc.id,
-                    name: doc.name,
-                    phone: doc.phone,
-                    email: doc.email,
-                    subject: doc.subject,
-                    message: doc.message,
-                    archived: doc.archived,
-                    read: doc.read,
-                    date: doc.date
-                };
+                return doc as unknown as MessageModel;
             }
         } catch {
             return "Database error";
@@ -43,17 +33,7 @@ const messageService = {
         try {
             const docs = await Message.find(filter, {}, { skip: page * (limit - 1), limit: limit }).sort(order);
             return docs.map(el => {
-                return {
-                    id: el.id,
-                    name: el.name,
-                    phone: el.phone,
-                    email: el.email,
-                    subject: el.subject,
-                    message: el.message,
-                    archived: el.archived,
-                    read: el.read,
-                    date: el.date
-                };
+                return el as unknown as MessageModel;
             });
         } catch {
             return "Database error"
@@ -61,9 +41,9 @@ const messageService = {
     },
     update: async (message: MessageModel): Promise<string> => {
         try {
-            await Message.findByIdAndUpdate(message.id, message).then(doc => {
+            await Message.findByIdAndUpdate(message._id, message).then(doc => {
                 if (doc)
-                    return "Message updated";
+                    return doc as unknown as MessageModel;
             });
         } catch {
             return "Database error"

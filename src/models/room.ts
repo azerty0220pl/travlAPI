@@ -1,5 +1,7 @@
+import { ObjectId } from "mongoose";
+
 interface RoomModel {
-    id: string,
+    _id: string | ObjectId,
     name: string,
     type: number,
     ammenities: string[],

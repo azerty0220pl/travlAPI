@@ -1,5 +1,7 @@
+import { ObjectId } from "mongoose";
+
 interface BookingModel {
-    id: string,
+    _id: string | ObjectId,
     name: string,
     order: Date,
     in: Date,

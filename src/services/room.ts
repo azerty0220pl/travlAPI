@@ -15,11 +15,11 @@ export const Room = model("Room", roomSchema);
 
 
 const roomService = {
-    fetchOne: async (name: String): Promise<any | string> => {
+    fetchOne: async (name: String): Promise<RoomModel | string> => {
         try {
             const doc = await Room.findOne({ name: name })
             if (doc) {
-                return doc;
+                return doc as unknown as RoomModel;
             }
         } catch {
             return "Database error";
@@ -31,17 +31,7 @@ const roomService = {
         try {
             const doc = await Room.findById(id)
             if (doc) {
-                return {
-                    id: doc.id,
-                    name: doc.name,
-                    type: doc.type,
-                    ammenities: doc.ammenities,
-                    price: doc.price,
-                    offer: doc.offer,
-                    bookings: doc.bookings,
-                    cancel: doc.cancel,
-                    status: true
-                };
+                return doc as unknown as RoomModel;
             }
         } catch {
             return "Database error";
@@ -53,27 +43,17 @@ const roomService = {
         try {
             const docs = await Room.find(filter, {}, { skip: page * (limit - 1), limit: limit }).sort(order);
             return docs.map(el => {
-                return {
-                    id: el.id,
-                    name: el.name,
-                    type: el.type,
-                    ammenities: el.ammenities,
-                    price: el.price,
-                    offer: el.offer,
-                    bookings: el.bookings,
-                    cancel: el.cancel,
-                    status: true
-                };
+                return el as unknown as RoomModel;
             });
         } catch {
             return "Database error";
         }
     },
-    update: async (room: RoomModel): Promise<string> => {
+    update: async (room: RoomModel): Promise<RoomModel | string> => {
         try {
-            await Room.findByIdAndUpdate(room.id, room).then(doc => {
+            await Room.findByIdAndUpdate(room._id, room).then(doc => {
                 if (doc)
-                    return "Room updated";
+                    return doc as unknown as RoomModel;
             });
         } catch {
             return "Database error";
