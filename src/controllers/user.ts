@@ -10,8 +10,8 @@ const orders: Orders = {
 interface Filters { [key: string]: object };
 const filters: Filters = {
     all: {},
-    active: { left: { $exists: false } },
-    inactive: { left: { $exists: true } }
+    active: { status: true },
+    inactive: { status: false }
 }
 
 const userController = {
