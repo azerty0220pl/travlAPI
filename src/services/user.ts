@@ -31,7 +31,7 @@ const userService = {
     },
     fetchById: async (id: String): Promise<UserModel | string> => {
         try {
-            const doc = await User.findById(id)
+            const doc = await User.findById(id);
             if (doc) {
                 return doc as unknown as UserModel;
             }

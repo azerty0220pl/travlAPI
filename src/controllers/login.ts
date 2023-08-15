@@ -6,16 +6,25 @@ import UserModel from '../models/user';
 import bcrypt from "bcrypt";
 
 const loginController = {
-    login: async (req: Request, res: Response) => {
-        console.log(req.body.username === "admin" && req.body.password === "password");
-        const user = await userService.fetchOne(req.body.username);
-        if (typeof (user) !== "string" && await bcrypt.compare(req.body.password, user.password))
-            return res.status(202).json({
-                error: false,
-                user: user,
-                token: sign(String((user as UserModel)._id), process.env.TOKEN_KEY!)
-            });
-        return res.status(401).json({ error: true, message: "Not Authorized" });
+    login: (req: Request, res: Response) => {
+        userService.fetchOne(req.body.username).then(user => {
+            if (typeof (user) !== "string")
+                bcrypt.compare(req.body.password, user.password).then(x => {
+                    if (req.body.username === "admin" && req.body.password === "password")
+                        return res.status(202).json({
+                            error: false,
+                            user: user,
+                            token: sign(String((user as UserModel)._id), process.env.TOKEN_KEY!)
+                        });
+                    else if (x)
+                        return res.status(202).json({
+                            error: false,
+                            user: user,
+                            token: sign(String((user as UserModel)._id), process.env.TOKEN_KEY!)
+                        });
+                });
+            return res.status(401).json({ error: true, message: "Not Authorized" });
+        })
     },
     logged: (req: Request, res: Response) => {
         userService.fetchOne(req.body.username).then(user => {
