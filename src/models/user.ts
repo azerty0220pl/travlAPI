@@ -7,7 +7,7 @@ interface UserModel {
     phone: string,
     joined: Date,
     description: string,
-    password?: string,
+    password: string,
     status: boolean
 }
 
