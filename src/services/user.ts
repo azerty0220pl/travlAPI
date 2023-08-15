@@ -1,5 +1,6 @@
 import { Schema, model } from "mongoose";
 import UserModel from "../models/user";
+import bcrypt from "bcrypt";
 
 
 const userSchema = new Schema({
@@ -52,6 +53,7 @@ const userService = {
     },
     update: async (user: UserModel): Promise<UserModel | string> => {
         try {
+            user.password = await bcrypt.hash(user.password, 10);
             const doc = await User.findByIdAndUpdate(user._id, user);
 
             if (doc)
@@ -64,9 +66,10 @@ const userService = {
     },
     new: async (user: UserModel): Promise<string> => {
         try {
-            const doc = await User.findOne({ name: user.name });
+            const doc = await User.findOne({ name: user.name }) as UserModel;
 
             if (!doc) {
+                user.password = await bcrypt.hash(user.password, 10);
                 const us = new User(user);
 
                 await us.save();

@@ -43,7 +43,7 @@ const bookingService = {
         try {
             await Booking.findByIdAndUpdate(book._id, book).then(doc => {
                 if (doc)
-                return doc as unknown as BookingModel;
+                    return doc as unknown as BookingModel;
             });
         } catch {
             return "Database error";
