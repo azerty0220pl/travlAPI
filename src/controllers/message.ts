@@ -20,17 +20,17 @@ const messageController = {
             filters[req.query.filter as string || "all"],
             orders[req.query.order as string || "date"]).then(data => {
                 if (typeof data === 'string')
-                    return res.json({ error: true, message: data });
+                    return res.status(500).json({ error: true, message: data });
                 else
-                    messageService.count().then(count => {
-                        return res.json({ error: false, booking: data, count: count });
+                    messageService.count(filters[req.query.filter as string || "all"]).then(count => {
+                        return res.json({ error: false, booking: message, count: count });
                     });
             });
     },
     getById: (req: Request, res: Response) => {
         messageService.fetchById(req.params.id).then(data => {
             if (typeof data === 'string')
-                return res.json({ error: true, message: data });
+                return res.status(500).json({ error: true, message: data });
             else
                 return res.json({ error: false, message: data });
         });
@@ -43,7 +43,7 @@ const messageController = {
             if (data === 'Message updated')
                 return res.json({ error: false, message: data });
             else
-                return res.json({ error: true, message: data });
+                return res.status(500).json({ error: true, message: data });
         });
     },
     new: (req: Request, res: Response) => {
@@ -51,7 +51,7 @@ const messageController = {
             if (data === 'Message saved')
                 return res.json({ error: false, message: data });
             else
-                return res.json({ error: true, message: data });
+                return res.status(500).json({ error: true, message: data });
         });
     }
 };

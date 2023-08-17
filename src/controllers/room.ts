@@ -23,9 +23,9 @@ const roomController = {
             filters[req.query.filter as string || "all"],
             orders[req.query.order as string || "number"]).then(data => {
                 if (typeof data === 'string')
-                    return res.json({ error: true, message: data });
+                    return res.status(500).json({ error: true, message: data });
                 else
-                    roomService.count().then(count => {
+                    roomService.count(filters[req.query.filter as string || "all"]).then(count => {
                         return res.json({ error: false, room: data, count: count });
                     });
             });
@@ -33,7 +33,7 @@ const roomController = {
     getById: (req: Request, res: Response) => {
         roomService.fetchById(req.params.id).then(data => {
             if (typeof data === 'string')
-                return res.json({ error: true, message: data });
+                return res.status(500).json({ error: true, message: data });
             else
                 return res.json({ error: false, room: data });
         });
@@ -46,7 +46,7 @@ const roomController = {
             if (data === 'Room updated')
                 return res.json({ error: false, room: data });
             else
-                return res.json({ error: true, message: data });
+                return res.status(500).json({ error: true, message: data });
         });
     },
     new: (req: Request, res: Response) => {
@@ -54,7 +54,7 @@ const roomController = {
             if (data === 'Room saved')
                 return res.json({ error: false, room: data });
             else
-                return res.json({ error: true, message: data });
+                return res.status(500).json({ error: true, message: data });
         });
     }
 };

@@ -22,9 +22,9 @@ const bookingController = {
             filters[req.query.filter as string || "all"],
             orders[req.query.order as string || "order"]).then(data => {
                 if (typeof data === 'string')
-                    return res.json({ error: true, message: data });
+                    return res.status(500).json({ error: true, message: data });
                 else
-                    bookingService.count().then(count => {
+                    bookingService.count(filters[req.query.filter as string || "all"]).then(count => {
                         return res.json({ error: false, booking: data, count: count });
                     });
             });
@@ -32,7 +32,7 @@ const bookingController = {
     getById: (req: Request, res: Response) => {
         bookingService.fetchById(req.params.id).then(data => {
             if (typeof data === 'string')
-                return res.json({ error: true, message: data });
+                return res.status(500).json({ error: true, message: data });
             else
                 return res.json({ error: false, booking: data });
         });
@@ -45,7 +45,7 @@ const bookingController = {
             if (data === 'Booking updated')
                 return res.json({ error: false, booking: data });
             else
-                return res.json({ error: true, message: data });
+                return res.status(500).json({ error: true, message: data });
         });
     },
     new: (req: Request, res: Response) => {
@@ -53,7 +53,7 @@ const bookingController = {
             if (data === 'Booking saved')
                 return res.json({ error: false, booking: data });
             else
-                return res.json({ error: true, message: data });
+                return res.status(500).json({ error: true, message: data });
         });
     }
 };
