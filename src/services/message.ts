@@ -13,7 +13,7 @@ const messageSchema = new Schema({
     date: { type: Date, required: true }
 });
 
-const Message = model("Message", messageSchema);
+export const Message = model("Message", messageSchema);
 
 
 const messageService = {
@@ -61,8 +61,8 @@ const messageService = {
             return "Database error"
         }
     },
-    count: async () => {
-        return await Message.count({});
+    count: async (filter: object) => {
+        return await Message.count(filter);
     }
 };
 

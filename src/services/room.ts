@@ -7,8 +7,9 @@ const roomSchema = new Schema({
     ammenities: { type: [String], required: true },
     price: { type: Number, required: true },
     offer: { type: Number, required: true },
-    bookings: { type: [Object], required: true },
-    cancel: { type: String, required: true }
+    cancel: { type: String, required: true },
+    description: { type: String, required: true },
+    bookings: { type: [Object], required: true }
 });
 
 export const Room = model("Room", roomSchema);
@@ -77,8 +78,8 @@ const roomService = {
             return "Database error";
         }
     },
-    count: async () => {
-        return await Room.count({});
+    count: async (filter: object) => {
+        return await Room.count(filter);
     }
 };
 

@@ -13,7 +13,7 @@ const userSchema = new Schema({
     password: { type: String, required: true }
 });
 
-const User = model("User", userSchema);
+export const User = model("User", userSchema);
 
 
 const userService = {
@@ -81,8 +81,8 @@ const userService = {
             return "Database error";
         }
     },
-    count: async () => {
-        return await User.count({});
+    count: async (filter: object) => {
+        return await User.count(filter);
     }
 };
 

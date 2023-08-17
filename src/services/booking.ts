@@ -13,7 +13,7 @@ const bookingSchema = new Schema({
     refund: { type: Boolean, required: true }
 });
 
-const Booking = model("Booking", bookingSchema);
+export const Booking = model("Booking", bookingSchema);
 
 
 const bookingService = {
@@ -72,8 +72,8 @@ const bookingService = {
             return "Database error";
         }
     },
-    count: async () => {
-        return await Booking.count({});
+    count: async (filter: object) => {
+        return await Booking.count(filter);
     }
 };
 
