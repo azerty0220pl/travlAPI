@@ -1,14 +1,14 @@
 import { ObjectId } from "mongoose";
 
 interface BookingModel {
-    _id: string | ObjectId,
+    _id?: ObjectId,
     name: string,
     order: Date,
     in: Date,
     out: Date,
     request: string,
-    status: number,
-    room: string
+    room: string,
+    refund: boolean
 }
 
 export default BookingModel;

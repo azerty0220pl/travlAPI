@@ -1,15 +1,15 @@
 import { ObjectId } from "mongoose";
 
 interface RoomModel {
-    _id: string | ObjectId,
+    _id?: ObjectId,
     name: string,
     type: number,
     ammenities: string[],
+    description: string,
     cancel: string,
     price: number,
     offer: number,
-    bookings: object[],
-    status: boolean
+    bookings: object[]
 }
 
 export default RoomModel;
