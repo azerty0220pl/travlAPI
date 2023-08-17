@@ -23,7 +23,7 @@ const messageController = {
                     return res.status(500).json({ error: true, message: data });
                 else
                     messageService.count(filters[req.query.filter as string || "all"]).then(count => {
-                        return res.json({ error: false, booking: message, count: count });
+                        return res.json({ error: false, message: data, count: count });
                     });
             });
     },
