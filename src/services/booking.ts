@@ -31,7 +31,7 @@ const bookingService = {
     },
     fetchPage: async (page: number, limit: number, filter: object, order: { [key: string]: 1 | -1 }): Promise<BookingModel[] | string> => {
         try {
-            const docs = await Booking.find(filter, {}, { skip: page * (limit - 1), limit: limit }).sort(order);
+            const docs = await Booking.find(filter, {}, { skip: page * (limit), limit: limit }).sort(order);
             return docs.map(el => {
                 return el as unknown as BookingModel;
             });

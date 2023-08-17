@@ -31,7 +31,7 @@ const messageService = {
     },
     fetchPage: async (page: number, limit: number, filter: object, order: { [key: string]: 1 | -1 }): Promise<MessageModel[] | string> => {
         try {
-            const docs = await Message.find(filter, {}, { skip: page * (limit - 1), limit: limit }).sort(order);
+            const docs = await Message.find(filter, {}, { skip: page * (limit), limit: limit }).sort(order);
             return docs.map(el => {
                 return el as unknown as MessageModel;
             });

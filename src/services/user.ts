@@ -43,7 +43,7 @@ const userService = {
     },
     fetchPage: async (page: number, limit: number, filter: object, order: { [key: string]: 1 | -1 }): Promise<UserModel[] | string> => {
         try {
-            let docs = await User.find(filter, {}, { skip: (page * (limit - 1)), limit: limit }).sort(order);
+            const docs = await User.find(filter, {}, { skip: page * (limit), limit: limit }).sort(order);
             return docs.map(el => {
                 return el as unknown as UserModel;
             });
