@@ -9,6 +9,7 @@ import roomController from "./controllers/room";
 import userController from "./controllers/user";
 import isAuthorized from "./middleware/login";
 import connect from './services/connect';
+import seed from "./utils/seed";
 
 connect().then(() => {
     console.log("Connected to database");
@@ -51,6 +52,8 @@ app.route("/users/:id")
     .put(isAuthorized, userController.update);
 
 app.post("/login", loginController.login);
-app.post("/logged", isAuthorized, loginController.logged)
+app.post("/logged", isAuthorized, loginController.logged);
+
+app.get("/seed", seed);
 
 export default app;
