@@ -7,26 +7,21 @@ import bcrypt from "bcrypt";
 
 const loginController = {
     login: (req: Request, res: Response) => {
-        userService.fetchOne(req.body.username).then(user => {
+        userService.fetchOne(req.body.username).then(async user => {
             if (typeof (user) !== "string") {
-                bcrypt.compare(req.body.password, user.password).then(x => {
-                    if (req.body.username === "admin" && req.body.password === "password")
-                        return res.status(202).json({
-                            error: false,
-                            user: user,
-                            token: sign(String((user as UserModel)._id), process.env.TOKEN_KEY!)
-                        });
-                    else if (x)
-                        return res.status(202).json({
-                            error: false,
-                            user: user,
-                            token: sign(String((user as UserModel)._id), process.env.TOKEN_KEY!)
-                        });
-                        
-                    return res.status(401).json({ error: true, message: "Not Authorized" });
-                });
+                const x = await bcrypt.compare(req.body.password, user.password)
+                if (x)
+                    return res.status(202).json({
+                        error: false,
+                        user: user,
+                        token: sign(String((user as UserModel)._id), process.env.TOKEN_KEY!)
+                    });
+
+                return res.status(401).json({ error: true, message: "Not Authorized" });
             }
-        })
+            
+            return res.status(401).json({ error: true, message: "Not Authorized" });
+        });
     },
     logged: (req: Request, res: Response) => {
         userService.fetchOne(req.body.username).then(user => {
