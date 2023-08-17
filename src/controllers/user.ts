@@ -22,7 +22,7 @@ const userController = {
             filters[req.query.filter as string || "all"],
             orders[req.query.order as string || "name"]).then(data => {
                 if (typeof data === 'string')
-                    return res.status(500).json({ error: true, message: data });
+                    return res.status(400).json({ error: true, message: data });
                 else
                     userService.count(filters[req.query.filter as string || "all"]).then(count => {
                         return res.json({ error: false, user: data, count: count });
@@ -32,7 +32,7 @@ const userController = {
     getById: (req: Request, res: Response) => {
         userService.fetchById(req.params.id).then(data => {
             if (typeof data === 'string')
-                return res.status(500).json({ error: true, message: data });
+                return res.status(400).json({ error: true, message: data });
             else
                 return res.json({ error: false, user: data });
         });
@@ -42,7 +42,7 @@ const userController = {
             if (typeof (data) !== 'string')
                 return res.json({ error: false, user: data });
             else
-                return res.status(500).json({ error: true, message: data });
+                return res.status(400).json({ error: true, message: data });
         });
     },
     new: (req: Request, res: Response) => {
@@ -50,7 +50,7 @@ const userController = {
             if (data === 'User saved')
                 return res.json({ error: false, user: data });
             else
-                return res.status(500).json({ error: true, message: data });
+                return res.status(400).json({ error: true, message: data });
         });
     }
 };

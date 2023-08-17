@@ -23,7 +23,7 @@ const roomController = {
             filters[req.query.filter as string || "all"],
             orders[req.query.order as string || "number"]).then(data => {
                 if (typeof data === 'string')
-                    return res.status(500).json({ error: true, message: data });
+                    return res.status(400).json({ error: true, message: data });
                 else
                     roomService.count(filters[req.query.filter as string || "all"]).then(count => {
                         return res.json({ error: false, room: data, count: count });
@@ -33,28 +33,25 @@ const roomController = {
     getById: (req: Request, res: Response) => {
         roomService.fetchById(req.params.id).then(data => {
             if (typeof data === 'string')
-                return res.status(500).json({ error: true, message: data });
+                return res.status(400).json({ error: true, message: data });
             else
                 return res.json({ error: false, room: data });
         });
     },
     update: (req: Request, res: Response) => {
-        let room = req.body.room;
-        room.id = req.params.id;
-
-        roomService.update(room).then(data => {
-            if (data === 'Room updated')
-                return res.json({ error: false, room: data });
+        roomService.update(req.body.room).then(data => {
+            if (typeof data === 'string')
+                return res.status(400).json({ error: true, message: data });
             else
-                return res.status(500).json({ error: true, message: data });
+                return res.json({ error: false, room: data });
         });
     },
     new: (req: Request, res: Response) => {
         roomService.new(req.body.room).then(data => {
-            if (data === 'Room saved')
-                return res.json({ error: false, room: data });
+            if (typeof data === 'string')
+                return res.status(400).json({ error: true, message: data });
             else
-                return res.status(500).json({ error: true, message: data });
+                return res.json({ error: false, room: data });
         });
     }
 };

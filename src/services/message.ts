@@ -39,17 +39,16 @@ const messageService = {
             return "Database error"
         }
     },
-    update: async (message: MessageModel): Promise<string> => {
+    update: async (message: MessageModel): Promise<MessageModel | string> => {
         try {
-            await Message.findByIdAndUpdate(message._id, message).then(doc => {
-                if (doc)
-                    return doc as unknown as MessageModel;
-            });
-        } catch {
+            let doc = await Message.findByIdAndUpdate(message._id, message)
+            if (doc)
+                return doc as unknown as MessageModel;
+            else
+                return "doc is null";
+        } catch (e: any) {
             return "Database error"
         }
-
-        return "Not updated";
     },
     new: async (message: MessageModel): Promise<string> => {
         try {

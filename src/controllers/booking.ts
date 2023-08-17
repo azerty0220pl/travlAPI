@@ -22,7 +22,7 @@ const bookingController = {
             filters[req.query.filter as string || "all"],
             orders[req.query.order as string || "order"]).then(data => {
                 if (typeof data === 'string')
-                    return res.status(500).json({ error: true, message: data });
+                    return res.status(400).json({ error: true, message: data });
                 else
                     bookingService.count(filters[req.query.filter as string || "all"]).then(count => {
                         return res.json({ error: false, booking: data, count: count });
@@ -32,28 +32,25 @@ const bookingController = {
     getById: (req: Request, res: Response) => {
         bookingService.fetchById(req.params.id).then(data => {
             if (typeof data === 'string')
-                return res.status(500).json({ error: true, message: data });
+                return res.status(400).json({ error: true, message: data });
             else
                 return res.json({ error: false, booking: data });
         });
     },
     update: (req: Request, res: Response) => {
-        let book = req.body.booking;
-        book.id = req.params.id;
-
-        bookingService.update(book).then(data => {
-            if (data === 'Booking updated')
-                return res.json({ error: false, booking: data });
+        bookingService.update(req.body.booking).then(data => {
+            if (typeof data === 'string')
+                return res.status(400).json({ error: true, message: data });
             else
-                return res.status(500).json({ error: true, message: data });
+                return res.json({ error: false, booking: data });
         });
     },
     new: (req: Request, res: Response) => {
         bookingService.new(req.body.booking).then(data => {
-            if (data === 'Booking saved')
-                return res.json({ error: false, booking: data });
+            if (typeof data === 'string')
+                return res.status(400).json({ error: true, message: data });
             else
-                return res.status(500).json({ error: true, message: data });
+                return res.json({ error: false, booking: data });
         });
     }
 };
