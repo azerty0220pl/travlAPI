@@ -48,7 +48,7 @@ const roomController = {
     },
     new: (req: Request, res: Response) => {
         roomService.new(req.body.room).then(data => {
-            if (typeof data === 'string')
+            if (data !== "Room saved.")
                 return res.status(400).json({ error: true, message: data });
             else
                 return res.json({ error: false, room: data });

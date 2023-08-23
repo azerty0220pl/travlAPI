@@ -45,7 +45,7 @@ const messageController = {
     },
     new: (req: Request, res: Response) => {
         messageService.new(req.body.message).then(data => {
-            if (typeof data === 'string')
+            if (data !== 'Message saved')
                 return res.status(400).json({ error: true, message: data });
             else
                 return res.json({ error: false, message: data });

@@ -47,7 +47,7 @@ const bookingController = {
     },
     new: (req: Request, res: Response) => {
         bookingService.new(req.body.booking).then(data => {
-            if (typeof data === 'string')
+            if (data !== 'Booking saved')
                 return res.status(400).json({ error: true, message: data });
             else
                 return res.json({ error: false, booking: data });
