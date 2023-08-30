@@ -12,7 +12,7 @@ const orders: Orders = {
 interface Filters { [key: string]: object };
 const filters: Filters = {
     all: {},
-    progress: { refund: false, in: { $lte: new Date()}, out: { $gt: new Date()} }
+    progress: { in: { $lte: new Date()}, out: { $gt: new Date()} }
 }
 
 const bookingController = {
