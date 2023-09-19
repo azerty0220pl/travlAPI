@@ -22,7 +22,7 @@ jobs:
     - name: Create .aws/config file
       run: |
         mkdir .aws
-        ls
+        ls -a
         cd ./.aws
         echo "${{ secrets.AWS_CONFIG }}" > ./.aws/config
     - name: Build app
