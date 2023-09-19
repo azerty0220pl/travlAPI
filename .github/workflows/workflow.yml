@@ -20,7 +20,10 @@ jobs:
     - name: Create .env.json file
       run: echo "${{ secrets.ENV_JSON }}" > .env.json
     - name: Create .aws/config file
-      run: mkdir .aws | echo "${{ secrets.AWS_CONFIG }}" > ./.aws/config
+      run: mkdir .aws
+      run: ls
+      run: cd ./.aws
+      run: echo "${{ secrets.AWS_CONFIG }}" > ./.aws/config
     - name: Build app
       run: npm run build
     - name: serverless deploy
