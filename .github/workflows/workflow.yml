@@ -18,7 +18,9 @@ jobs:
     - name: Create .env file
       run: echo "${{ secrets.ENV }}" > .env
     - name: Create .env.json file
-      run: echo "${{ secrets.ENV_JSON }}" > .env.json
+      run: |
+        echo "${{ secrets.ENV_JSON }}" > .env.json
+        cat .env.json
     - name: Create .aws/config file
       run: |
         mkdir .aws
