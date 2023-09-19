@@ -22,9 +22,8 @@ jobs:
     - name: Create .aws/config file
       run: |
         mkdir .aws
-        ls -a
         cd ./.aws
-        echo "${{ secrets.AWS_CONFIG }}" > ./.aws/config
+        echo "${{ secrets.AWS_CONFIG }}" > config
     - name: Build app
       run: npm run build
     - name: serverless deploy
