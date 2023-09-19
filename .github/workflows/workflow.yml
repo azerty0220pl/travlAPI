@@ -16,14 +16,11 @@ jobs:
     - name: Install dependecies
       run: npm ci
     - name: Create .env file
-      run: |
-        echo ${{ secrets.ENV }} > .env
+      run: echo "${{ secrets.ENV }}"" > .env
     - name: Create .env.json file
-      run: |
-        echo ${{ secrets.ENV_JSON }} > .env.json
+      run: echo "${{ secrets.ENV_JSON }}"" > .env.json
     - name: Create .aws/config file
-      run: |
-        echo ${{ secrets.AWS_CONFIG }} > .aws/config
+      run: echo "${{ secrets.AWS_CONFIG }}"" > .aws/config
     - name: Build app
       run: npm run build
     - name: serverless deploy
