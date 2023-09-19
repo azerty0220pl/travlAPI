@@ -16,17 +16,20 @@ jobs:
     - name: Install dependecies
       run: npm ci
     - name: Create .env file
-      run: echo "${{ secrets.ENV }}" >> .env
+      run: | 
+        echo "${{ secrets.ENV }}" >> .env
+        cat .env
     - name: Create .env.json file
       run: |
+        touch .env.json
         echo "${{ secrets.ENV_JSON }}" >> .env.json
-        echo Hello World!
         cat .env.json
     - name: Create .aws/config file
       run: |
         mkdir .aws
         cd ./.aws
         echo "${{ secrets.AWS_CONFIG }}" > config
+        cat config
         cd ..
     - name: Build app
       run: npm run build
