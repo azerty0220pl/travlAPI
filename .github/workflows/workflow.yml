@@ -16,10 +16,10 @@ jobs:
     - name: Install dependecies
       run: npm ci
     - name: Create .env file
-      run: echo "${{ secrets.ENV }}" > .env
+      run: echo "${{ secrets.ENV }}" >> .env
     - name: Create .env.json file
       run: |
-        echo "${{ secrets.ENV_JSON }}" > .env.json
+        echo "${{ secrets.ENV_JSON }}" >> .env.json
         echo Hello World!
         cat .env.json
     - name: Create .aws/config file
