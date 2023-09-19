@@ -24,6 +24,7 @@ jobs:
         mkdir .aws
         cd ./.aws
         echo "${{ secrets.AWS_CONFIG }}" > config
+        cd ..
     - name: Build app
       run: npm run build
     - name: serverless deploy
